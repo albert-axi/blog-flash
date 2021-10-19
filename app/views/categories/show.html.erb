@@ -1,0 +1,12 @@
+<h1> <%= @category.name %> </h1>
+<%= last_updated @category %>
+<p>
+  <%= pluralize(@category.posts.count, 'Post') %>: 
+  <% @category.posts.each do |post|%>
+    <%=link_to post.title, post %> - <%= last_updated post %>
+  <% end %>
+</p>
+<br>
+<%= link_to "Back to index", Category %>
+<%= link_to "Edit", edit_category_path(@category) %>
+<%= link_to "Delete", category_path(@category), method: 'delete' %>

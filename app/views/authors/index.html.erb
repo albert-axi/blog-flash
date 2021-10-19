@@ -1,0 +1,11 @@
+
+<h1>Authors Index </h1>
+<ul>
+  <% @authors.each do |author| %>
+    <li>
+      <%= author.name %>
+      <%= link_to "Show", author %> 
+      <%= link_to "Delete", author, method: :delete %>
+    </li>
+  <% end %>
+</ul>
