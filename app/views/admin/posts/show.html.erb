@@ -1,0 +1,10 @@
+<h1> <%= @post.title %> </h1>
+<p><%= last_updated @post %></p>
+<%= render partial: 'post_author', locals: {
+  post_author: @post.author,
+  author_name: @post.author&.name
+  } %>
+<%= render 'post_categories' %>
+<%= render 'post_content' %>
+<br>
+<%= render 'post_options' %>

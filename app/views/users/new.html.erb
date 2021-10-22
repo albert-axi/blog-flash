@@ -1,0 +1,6 @@
+<%= form_with model: User, url: '/users' do |f| %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+<% end %>

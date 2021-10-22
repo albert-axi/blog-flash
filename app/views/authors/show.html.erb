@@ -1,6 +1,10 @@
+<% title @author.name %>
+
 <h1> <%= @author.name %> </h1>
 <%= last_updated @author %>
 
+<br>
+<%= link_to "View Posts", author_posts_path(@author) %>
 <br>
 <%= link_to "Back to index", Author %>
 <%= link_to "Delete", author_path(@author), method: 'delete' %>

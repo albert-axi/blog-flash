@@ -1,6 +1,4 @@
-class PostsController < ApplicationController
-  
-
+class Admin::PostsController < ApplicationController
   # def index # retieves all post records
 
   #   if !params[:author].blank? && !params[:date].blank?
@@ -24,15 +22,18 @@ class PostsController < ApplicationController
   # end
 
   def index
-    if params[:author_id]
-      @posts = Post.by_author(params[:author_id])
-    else
-      @posts = Post.all
-    end
+    
+    raise "SESSION"
+    # if params[:author_id]
+    #   @posts = Post.by_author(params[:author_id])
+    # else
+    #   @posts = Post.all
+    # end
   end
 
   def show # retrieve individual post
     @post = Post.find(params[:id])
+    render :layout => "admin"
   end
 
   def new # renders the page where you can create a new post
@@ -83,3 +84,47 @@ class PostsController < ApplicationController
 
 end
 
+# {
+#   "authenticity_token"=>"[FILTERED]", 
+#   "post"=>{
+#     "title"=>"The Post with Author", 
+#     "content"=>"Random String 2", 
+#     "author_id"=>"1"
+#   }, 
+#   "commit"=>"Create Post"
+# }
+
+
+# {
+#   "authenticity_token"=>"[FILTERED]", 
+#   "post"=>
+#   {
+#     "title"=>"The Post with Categories", 
+#     "content"=>"Random String", 
+#     "author_id"=>"3", 
+#     "category_ids"=>["", "1", "3"]
+#   }, 
+#   "commit"=>"Create Post"
+# }
+
+# {
+#   "authenticity_token"=>"[FILTERED]", 
+#   "post"=>{
+#     "title"=>"The test params", 
+#     "content"=>"Random String", 
+#     "author_id"=>"1", 
+#     "category_ids"=>[""]
+#   }
+#   , "commit"=>"Create Post"
+# }
+
+# {
+#   "authenticity_token"=>"[FILTERED]", 
+#   "title"=>"The test params 2", 
+#   "content"=>"Random String", 
+#   "post"=>{
+#     "author_id"=>"1", 
+#     "category_ids"=>[""]
+#   }, 
+#   "commit"=>"Create Post"
+# }

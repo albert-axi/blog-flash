@@ -1,0 +1,6 @@
+<p>
+  <%= pluralize(@post.categories.count, 'Category') %>: 
+  <% @post.categories.each do |cat|%>
+    <%=link_to cat.name, cat %>
+  <% end %>
+</p>
